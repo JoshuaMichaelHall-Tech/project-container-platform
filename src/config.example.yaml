@@ -1,0 +1,89 @@
+# Example configuration file
+# Copy this file to config.local.yaml and update it with your values
+
+api:
+  host: 0.0.0.0
+  port: 8000
+  log_level: debug
+  cors_origins:
+    - http://localhost:8080
+    - http://localhost:3000
+  jwt_secret: change_this_to_a_secure_secret_in_production
+  jwt_expiration: 86400  # 1 day in seconds
+
+database:
+  host: localhost
+  port: 5432
+  name: container_security
+  user: postgres
+  password: postgres
+  pool_size: 10
+  max_overflow: 20
+
+redis:
+  host: localhost
+  port: 6379
+  db: 0
+
+scanner:
+  interval: 300  # 5 minutes in seconds
+  concurrency: 2
+  timeout: 600  # 10 minutes in seconds
+  trivy_path: /usr/local/bin/trivy
+  severity_thresholds:
+    critical: 0  # Any critical finding fails the scan
+    high: 0      # Any high finding fails the scan
+    medium: 5    # Up to 5 medium findings are allowed
+    low: 10      # Up to 10 low findings are allowed
+
+policy_engine:
+  policy_directory: src/policies
+  default_enforcement: warn  # Options: enforce, warn, report
+  exemptions_file: src/policies/exemptions.yaml
+
+registry:
+  internal:
+    url: http://localhost:5000
+    username: testuser
+    password: testpassword
+  
+  # AWS ECR integration (optional)
+  aws_ecr:
+    enabled: false
+    region: us-east-1
+    registry: 111222333444.dkr.ecr.us-east-1.amazonaws.com
+    role_arn: arn:aws:iam::111222333444:role/EcrAccessRole
+
+notifications:
+  email:
+    enabled: false
+    smtp_server: smtp.example.com
+    smtp_port: 587
+    smtp_username: user
+    smtp_password: password
+    from_address: security@example.com
+    to_addresses:
+      - security-team@example.com
+  
+  slack:
+    enabled: false
+    webhook_url: https://hooks.slack.com/services/XXX/YYY/ZZZ
+    channel: "#security-alerts"
+
+ui:
+  port: 8080
+  api_url: http://localhost:8000
+
+monitoring:
+  prometheus:
+    enabled: true
+    port: 9090
+  grafana:
+    enabled: true
+    port: 3000
+
+feature_flags:
+  aws_integration: false
+  slack_notifications: false
+  auto_remediation: false
+EOF < /dev/null

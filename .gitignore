@@ -1,0 +1,94 @@
+# Docker related
+.docker/
+*.tar
+docker-compose.override.yml
+
+# Kubernetes related
+kubeconfig
+*.kubeconfig
+*kubeconfig*
+kubectl.sha256
+
+# Container image scan reports
+trivy-reports/
+scan-reports/
+vulnerability-reports/
+
+# AWS specific
+.aws/
+aws.json
+credentials.json
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# Dependencies
+node_modules/
+vendor/
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Build files
+build/
+target/
+out/
+
+# Testing
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+.pytest_cache/
+coverage/
+test-results/
+
+# Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+.envrc
+*.env
+
+# Logs
+logs/
+*.log
+
+# Secrets
+*.key
+*.pem
+*.p12
+*secrets*
+*secret*
+*credential*
+*password*
+
+# Generated files
+generated/
+EOF < /dev/null
