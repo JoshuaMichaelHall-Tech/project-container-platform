@@ -1,6 +1,8 @@
-# Secure Container Platform for Financial Services (IN DEVELOPMENT)
+# Secure Container Platform for Financial Services
 
-# IN DEVELOPMENT
+## 🚧 PROJECT STATUS: IN DEVELOPMENT
+
+**Note**: This is an AI-generated project template created as part of my DevOps learning journey. Active development will begin as I progress through my Docker, Kubernetes, and AWS ECS training.
 
 ## Project Overview
 
